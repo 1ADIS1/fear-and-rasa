@@ -89,3 +89,17 @@ class ActionCharacterOrigin(Action):
                 """)
 
         return ability
+
+
+class ActionCrawMaulerChoice(Action):
+
+    def name(self) -> Text:
+        return "action_craw_mauler_choice"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        character_origin = tracker.get_slot("character_origin")
+
+        return []

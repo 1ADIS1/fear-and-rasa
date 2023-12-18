@@ -65,4 +65,12 @@ nlu:
     - Enter [door](main_entrance_choice)
     - Open [door](main_entrance_choice)
     - Look at [table](main_entrance_choice)
+
+- intent: craw_mauler_choice
+  examples: |
+    - [Fight](craw_mauler_choice)
+    - [Run](craw_mauler_choice)
+    - Let's [fight](craw_mauler_choice)
+    - [Ruun](craw_mauler_choice)
+    - [Run](craw_mauler_choice)!
     

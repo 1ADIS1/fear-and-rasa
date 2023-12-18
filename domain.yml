@@ -131,6 +131,26 @@ responses:
     stay alive even in the most impossible of situations.
   "
 
+  utter_choose_first_entrance:
+    - condition:
+      - type: slot
+        name: first_entrance
+        value: Main
+      text: "\nYou have passed the giant gates and apperead in what seems to be a large hall. In front of you there are:\n
+      door - normal wooden door in the wall.\n
+      table - wooden table with a stool and something laying on it.\n
+      
+      \nWhat will you explore?"
+    
+    - condition:
+      - type: slot
+        name: first_entrance
+        value: Side
+      text: "In front of you there is a long staircase, leading to the darkness. \nThe walls are covered in thick moss, 
+      mushrooms are everywhere, and you start to feel an unpleasant smell. You can:\n
+      Eat mushrooms\n
+      Go down"
+
   utter_main_entrance_choice:
     - condition:
       - type: slot
@@ -174,25 +194,66 @@ responses:
         value: Lockpicking
       text: ""
 
-  utter_choose_first_entrance:
+# TODO: rewrite to custom action
+  utter_craw_mauler_choice:
     - condition:
+      - type: slot
+        name: character_name
+        value: Mercenary
       - type: slot
         name: first_entrance
         value: Main
-      text: "\nYou have passed the giant gates and apperead in what seems to be a large hall. In front of you there are:\n
-      door - normal wooden door in the wall.\n
-      table - wooden table with a stool and something laying on it.\n
+      - type: slot
+        name: main_entrance_choice
+        value: Door
+      - type: slot
+        name: craw_mauler_choice
+        value: Fight
+      text: "You're trembling from fear, but somehow you pull yourself together. You are striking craw mauler with your mercenary's curved sword, 
+      but it craw mauler does not react to it even slightly. It raises it's peak above you and chops off your head instantly...\n\n
       
-      \nWhat will you explore?"
-    
+      You died."
+
     - condition:
       - type: slot
+        name: character_name
+        value: Mercenary
+      - type: slot
+        name: character_origin
+        value: Honest life
+      - type: slot
         name: first_entrance
-        value: Side
-      text: "In front of you there is a long staircase, leading to the darkness. \nThe walls are covered in thick moss, 
-      mushrooms are everywhere, and you start to feel an unpleasant smell. You can:\n
-      Eat mushrooms\n
-      Go down"
+        value: Main
+      - type: slot
+        name: main_entrance_choice
+        value: Door
+      - type: slot
+        name: craw_mauler_choice
+        value: Run
+      text: "Of course, what you, mere human, can do against ancient terror? The best thing is to run as fast as you can. However, when you turn you back to craw mauler,
+      it chops your legs off and beats you to death. Finally, it raises it's peak above you and chops off your head...\n\n
+      
+      You died."
+
+    - condition:
+      - type: slot
+        name: ability
+        value: Steal
+      - type: slot
+        name: first_entrance
+        value: Main
+      - type: slot
+        name: main_entrance_choice
+        value: Door
+      - type: slot
+        name: craw_mauler_choice
+        value: Run
+      text: "Of course, what you - mere human can do against ancient terror? The best thing is to run as fast as you can. The harsh world of thieves taught you
+      agility. \n\n
+      
+      You outrun craw mauler and even manage to steal something from his left pocket... It is a key with an emblem of crow!\n\n
+      
+      You can return to the side entrance."
 
   utter_side_door_choice:
     - condition:
