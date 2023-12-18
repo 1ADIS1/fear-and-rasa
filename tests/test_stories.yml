@@ -1,0 +1,25 @@
+#### This file contains tests to evaluate that your bot behaves as expected.
+#### If you want to learn more, please see the docs: https://rasa.com/docs/rasa/testing-your-assistant
+
+stories:
+- story: start game 1
+  steps:
+  - user: |
+      start
+    intent: start
+  - action: utter_start
+  - user: |
+      Mercenary
+    intent: choose_character
+  - action: utter_choose_character
+
+- story: start game 2
+  steps:
+  - user: |
+      play
+    intent: start
+  - action: utter_start
+  - user: |
+      Dark priest
+    intent: choose_character
+  - action: utter_choose_character

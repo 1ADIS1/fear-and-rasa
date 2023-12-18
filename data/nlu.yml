@@ -1,0 +1,68 @@
+version: "3.1"
+
+nlu:
+- intent: start
+  examples: |
+    - start
+    - play
+    - go
+    - restart
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+
+- intent: choose_character
+  examples: |
+    - [mercenary](character)
+    - [mercenary](character) character
+    - [knight](character)
+    - [knight](character) character
+    - [dark priest](character)
+    - [dark priest](character) character
+    - Choose [outlander](character)
+    - Choose [outlander](character) character
+    - Play as [mercenary](character)
+
+- intent: character_origin
+  examples: |
+    - [Pickpocket](character_origin)
+    - [Burglar](character_origin)
+    - [Honest life](character_origin)
+    - [Life](character_origin)
+
+- intent: choose_first_entrance
+  examples: |
+    - [Main](first_entrance)
+    - [Side](first_entrance)
+    - Go to [Main](first_entrance)
+    - Go to [Side](first_entrance)
+
+- intent: side_door_choice
+  examples: |
+    - [Mushrooms](side_door_choice)
+    - [Down](side_door_choice)
+    - Go [down](side_door_choice)
+    - Eat [mushrooms](side_door_choice)
+
+- intent: main_entrance_choice
+  examples: |
+    - [Door](main_entrance_choice)
+    - [Table](main_entrance_choice)
+    - [Skeleton](main_entrance_choice)
+    - Go to [door](main_entrance_choice)
+    - Go to [skeleton](main_entrance_choice)
+    - Go to [table](main_entrance_choice)
+    - Enter [door](main_entrance_choice)
+    - Open [door](main_entrance_choice)
+    - Look at [table](main_entrance_choice)
+    

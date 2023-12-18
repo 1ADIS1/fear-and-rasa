@@ -1,0 +1,256 @@
+version: "3.1"
+
+# "Classes" for the model 
+intents:
+  - start
+  - choose_character
+  - character_origin
+  - choose_first_entrance
+  - main_entrance_choice
+  - side_door_choice
+  - craw_mauler_choice
+
+entities:
+- character # what character player had chosen.
+- character_origin # what origin player had chosen.
+- first_entrance # what entrance did the player went in
+- main_entrance_choice
+- side_door_choice 
+- craw_mauler_choice
+
+slots:
+
+  character_name:
+    type: categorical
+    values:
+      - Mercenary
+      - Knight
+      - Dark Priest
+      - Outlander
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: character
+      intent: choose_character
+  
+  character_origin:
+    type: categorical
+    values:
+      - Pickpocket
+      - Burglar
+      - Honest life
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: character_origin
+      intent: character_origin
+  
+  ability:
+    type: categorical
+    values:
+      - Steal
+      - Lockpicking
+      - Dash
+      - Devour
+      - Necromancy
+    influence_conversation: false
+    mappings:
+    - type: custom
+      action: action_character_origin
+  
+  first_entrance:
+    type: categorical
+    values:
+      - Main
+      - Side
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: first_entrance
+      intent: choose_first_entrance
+
+  main_entrance_choice:
+    type: categorical
+    values:
+      - Door
+      - Table
+      - Skeleton
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: main_entrance_choice
+      intent: main_entrance_choice
+
+  craw_mauler_choice:
+    type: categorical
+    values:
+      - Fight
+      - Run
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: craw_mauler_choice
+      intent: craw_mauler_choice
+
+  side_door_choice:
+    type: categorical
+    values:
+      - Mushrooms
+      - Down
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: side_door_choice
+      intent: side_door_choice
+
+  crow_key:
+    type: bool
+    influence_conversation: false
+    initial_value: false
+    mappings:
+      - type: custom
+
+# What AI will do in case of different classes.
+responses:
+  utter_start:
+  - text: "Choose your character: 
+    \n\n Mercenary \n---------\n
+    Mercenary, thief, assassin... Whatever brings the silver to the table.
+    Mercenary is known for his dirty tactics in battle and crafty ways of gaining the advantage. 
+
+    \n\n Knight \n---------\n
+    Knight with pure and righteous ways of the warrior. Having been trained for combat since a child,
+    knight excels in close combat and with different weaponry.
+
+    \n\n Dark Priest \n---------\n
+    Bearing no burden on such things as morality and ethics, gives dark priest and edge in blood magic.
+    However, devouting oneself to magic has left his physical body weak.
+
+    \n\n Outlander \n---------\n
+    Hardened in the freezing winds of the north, outlander is an epitome of survival. He knows all the tricks to 
+    stay alive even in the most impossible of situations.
+  "
+
+  utter_main_entrance_choice:
+    - condition:
+      - type: slot
+        name: first_entrance
+        value: Main
+      - type: slot
+        name: main_entrance_choice
+        value: Door
+      text: "You walk towards the wooden door, located in the farthest corner of the castle. You seen only glimpse of it because everything around is pitch black darkness.
+      However, when you start raising your hand to touch the door handle, it start to rotate by itself. Someone or something tries to open the door.\n\n
+      
+      You hear crow sounds: 'Kaaarh, kaarh'. The door opens and you see a half-naked man with a crow head and a wooden bloody mace instead of his left hand. What do you want to do?\n\n
+      
+      Fight\n
+      Run"
+    
+    - condition:
+      - type: slot
+        name: side_door_choice
+        value: Down
+      - type: slot
+        name: crow_key
+        value: false
+      text: ""
+
+    - condition:
+      - type: slot
+        name: side_door_choice
+        value: Down
+      - type: slot
+        name: crow_key
+        value: true
+      text: ""
+
+    - condition:
+      - type: slot
+        name: side_door_choice
+        value: Down
+      - type: slot
+        name: ability
+        value: Lockpicking
+      text: ""
+
+  utter_choose_first_entrance:
+    - condition:
+      - type: slot
+        name: first_entrance
+        value: Main
+      text: "\nYou have passed the giant gates and apperead in what seems to be a large hall. In front of you there are:\n
+      door - normal wooden door in the wall.\n
+      table - wooden table with a stool and something laying on it.\n
+      
+      \nWhat will you explore?"
+    
+    - condition:
+      - type: slot
+        name: first_entrance
+        value: Side
+      text: "In front of you there is a long staircase, leading to the darkness. \nThe walls are covered in thick moss, 
+      mushrooms are everywhere, and you start to feel an unpleasant smell. You can:\n
+      Eat mushrooms\n
+      Go down"
+
+  utter_side_door_choice:
+    - condition:
+      - type: slot
+        name: side_door_choice
+        value: Mushrooms
+      text: "You're gatheting some mushrooms from the dry wall. They are squishy and some of them have a distinctive smell.
+      Despite that, you still try to taste one. As you chew it, you seems to start feeling uncomfortable tension in the belly. You start to puke with blood, but you cannot stop
+      until you fall on the ground unconsciously. It was a mistake to eat these mushrooms... \n\n
+      
+      You died."
+    
+    - condition:
+      - type: slot
+        name: side_door_choice
+        value: Down
+      - type: slot
+        name: crow_key
+        value: false
+      text: "You see a wooden door, and strange noises coming from it. You cannot distinguish whether it is scream or just your imagination...\n
+      The door is locked, you need a key with a symbol of crow to go through it."
+
+    - condition:
+      - type: slot
+        name: side_door_choice
+        value: Down
+      - type: slot
+        name: crow_key
+        value: true
+      text: "You see a wooden door, and strange noises coming from it. You cannot distinguish whether it is scream or just your imagination...\n
+      The door is locked, but you're inserting the key with a symbol of a crow. You hear and unlocking sound. Door is opened.\n\n
+      
+      You feel the breeze coming froming the door and a bright light. It feels like a home, with each step you want to go to sleep.\n\n
+      
+      When you reach the light, you lay down near it and fall asleep. This nightmare is over, finally...\n\n
+      
+      Ending B: the end?"
+
+    - condition:
+      - type: slot
+        name: side_door_choice
+        value: Down
+      - type: slot
+        name: ability
+        value: Lockpicking
+      text: "You see a wooden door, and strange noises coming from it. You cannot distinguish whether it is scream or just your imagination...\n
+      The door is locked, but you use your lockpicking skill to open it. Success! You open the door...\n\n
+      
+      You feel the breeze coming froming the door and a bright light. It feels like a home, with each step you want to go to sleep.\n\n
+      
+      When you reach the light, you lay down near it and fall asleep. This nightmare is over, finally...\n\n
+      
+      Ending B: the end?"
+
+actions:
+  - action_character_chosen
+  - action_character_origin
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

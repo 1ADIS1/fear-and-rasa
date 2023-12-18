@@ -1,0 +1,56 @@
+version: "3.1"
+
+stories:
+
+- story: happy path 1
+  steps:
+
+  - intent: start
+  - action: utter_start
+
+  - intent: choose_character
+    entities:
+    - character: Mercenary
+  - action: action_character_chosen
+
+  - intent: character_origin
+    entities:
+    - character_origin: Burglar
+  - action: action_character_origin
+
+  - intent: choose_first_entrance
+    entities:
+    - first_entrance: Side
+  - action: utter_choose_first_entrance
+
+  - intent: side_door_choice
+    entities: 
+    - side_door_choice: Down
+  - action: utter_side_door_choice
+
+- story: Sad path 1
+  steps:
+
+  - intent: start
+  - action: utter_start
+
+  - intent: choose_character
+    entities:
+    - character: Mercenary # TODO: change to dark priest
+  - action: action_character_chosen
+
+  - intent: character_origin
+    entities:
+    - character_origin: Pickpocket
+  - action: action_character_origin
+
+  - intent: choose_first_entrance
+    entities:
+    - first_entrance: Side
+  - action: utter_choose_first_entrance
+
+  - intent: side_door_choice
+    entities: 
+    - side_door_choice: Mushrooms
+  - action: utter_side_door_choice
+

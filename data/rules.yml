@@ -1,0 +1,29 @@
+version: "3.1"
+
+rules:
+
+- rule: Start game 
+  steps:
+  - intent: start
+  - action: utter_start
+
+- rule: Choose character
+  steps:
+  - intent: choose_character
+  - action: action_character_chosen
+
+- rule: Choose character origin
+  steps:
+  - intent: character_origin
+  - action: action_character_origin
+
+- rule: Choose first entrance
+  steps:
+  - intent: choose_first_entrance
+  - action: utter_choose_first_entrance
+
+- rule: Choose side door options
+  steps:
+  - intent: side_door_choice
+  - action: utter_side_door_choice
+  
