@@ -10,7 +10,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/1ADIS1/repository/fear-and-rasa/master/FearAndRasa.png">
-    <img src="FearAndRasa.png" alt="Logo" width="80" height="80">
+    <img src="FearAndRasa.png" alt="Logo" width="250" height="150">
   </a>
 
   <h3 align="center">Fear and Rasa</h3>
