@@ -35,42 +35,46 @@ nlu:
 
 - intent: character_origin
   examples: |
-    - [Pickpocket](character_origin)
-    - [Burglar](character_origin)
-    - [Honest life](character_origin)
-    - [Life](character_origin)
+    - [pickpocket](character_origin)
+    - [burglar](character_origin)
+    - [honest life](character_origin)
+    - [life](character_origin)
+    - [dodge](character_origin)
+    - [block](character_origin)
+    - [kill](character_origin)
+    - [defeat](character_origin)
+    - [devour](character_origin)
+    - [not](character_origin)
 
 - intent: choose_first_entrance
   examples: |
-    - [Main](first_entrance)
-    - [Side](first_entrance)
-    - Go to [Main](first_entrance)
-    - Go to [Side](first_entrance)
+    - [main](first_entrance)
+    - [side](first_entrance)
+    - go to [main](first_entrance)
+    - go to [side](first_entrance)
 
 - intent: side_door_choice
   examples: |
-    - [Mushrooms](side_door_choice)
-    - [Down](side_door_choice)
+    - [mushrooms](side_door_choice)
+    - [down](side_door_choice)
     - Go [down](side_door_choice)
     - Eat [mushrooms](side_door_choice)
 
 - intent: main_entrance_choice
   examples: |
-    - [Door](main_entrance_choice)
-    - [Table](main_entrance_choice)
-    - [Skeleton](main_entrance_choice)
+    - [door](main_entrance_choice)
+    - [table](main_entrance_choice)
     - Go to [door](main_entrance_choice)
-    - Go to [skeleton](main_entrance_choice)
     - Go to [table](main_entrance_choice)
     - Enter [door](main_entrance_choice)
     - Open [door](main_entrance_choice)
     - Look at [table](main_entrance_choice)
 
-- intent: craw_mauler_choice
+- intent: crow_mauler_choice
   examples: |
-    - [Fight](craw_mauler_choice)
-    - [Run](craw_mauler_choice)
-    - Let's [fight](craw_mauler_choice)
-    - [Ruun](craw_mauler_choice)
-    - [Run](craw_mauler_choice)!
+    - [fight](crow_mauler_choice)
+    - [run](crow_mauler_choice)
+    - Let's [fight](crow_mauler_choice)
+    - [ruun](crow_mauler_choice)
+    - [run](crow_mauler_choice)!
     

@@ -1,6 +1,7 @@
 #### This file contains tests to evaluate that your bot behaves as expected.
 #### If you want to learn more, please see the docs: https://rasa.com/docs/rasa/testing-your-assistant
 
+# TODO: write 3 tests: mushroom dark priest, pickpocket mercenary crow mauler death, outlander devour crow mauler
 stories:
 - story: start game 1
   steps:

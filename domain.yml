@@ -8,7 +8,7 @@ intents:
   - choose_first_entrance
   - main_entrance_choice
   - side_door_choice
-  - craw_mauler_choice
+  - crow_mauler_choice
 
 entities:
 - character # what character player had chosen.
@@ -16,7 +16,7 @@ entities:
 - first_entrance # what entrance did the player went in
 - main_entrance_choice
 - side_door_choice 
-- craw_mauler_choice
+- crow_mauler_choice
 
 slots:
 
@@ -36,9 +36,15 @@ slots:
   character_origin:
     type: categorical
     values:
-      - Pickpocket
-      - Burglar
-      - Honest life
+      - pickpocket
+      - burglar
+      - honest life
+      - dodge
+      - block
+      - kill
+      - defeat
+      - devour
+      - not
     influence_conversation: false
     mappings:
     - type: from_entity
@@ -48,11 +54,14 @@ slots:
   ability:
     type: categorical
     values:
-      - Steal
-      - Lockpicking
-      - Dash
-      - Devour
-      - Necromancy
+      - steal
+      - lockpicking
+      - fast attack
+      - defence stance
+      - necromancy
+      - mastery over insects
+      - devour
+      - bloodlust
     influence_conversation: false
     mappings:
     - type: custom
@@ -74,29 +83,28 @@ slots:
     values:
       - Door
       - Table
-      - Skeleton
     influence_conversation: false
     mappings:
     - type: from_entity
       entity: main_entrance_choice
       intent: main_entrance_choice
 
-  craw_mauler_choice:
+  crow_mauler_choice:
     type: categorical
     values:
-      - Fight
-      - Run
+      - fight
+      - run
     influence_conversation: false
     mappings:
     - type: from_entity
-      entity: craw_mauler_choice
-      intent: craw_mauler_choice
+      entity: crow_mauler_choice
+      intent: crow_mauler_choice
 
   side_door_choice:
     type: categorical
     values:
-      - Mushrooms
-      - Down
+      - mushrooms
+      - down
     influence_conversation: false
     mappings:
     - type: from_entity
@@ -136,20 +144,22 @@ responses:
       - type: slot
         name: first_entrance
         value: Main
-      text: "\nYou have passed the giant gates and apperead in what seems to be a large hall. In front of you there are:\n
+      text: "\nYou have passed the giant gates and appeared in what seems to be a large hall. In front of you there are:\n
       door - normal wooden door in the wall.\n
       table - wooden table with a stool and something laying on it.\n
       
       \nWhat will you explore?"
     
+    # TODO: kill player
     - condition:
       - type: slot
         name: first_entrance
         value: Side
       text: "In front of you there is a long staircase, leading to the darkness. \nThe walls are covered in thick moss, 
       mushrooms are everywhere, and you start to feel an unpleasant smell. You can:\n
-      Eat mushrooms\n
-      Go down"
+
+      mushrooms - eat mushrooms from the walls\n 
+      down - go down the stairs"
 
   utter_main_entrance_choice:
     - condition:
@@ -159,158 +169,45 @@ responses:
       - type: slot
         name: main_entrance_choice
         value: Door
-      text: "You walk towards the wooden door, located in the farthest corner of the castle. You seen only glimpse of it because everything around is pitch black darkness.
+      text: "You walk towards the wooden door, located in the farthest corner of the castle. You have seen only a glimpse of it because everything around is a pitch black darkness.
       However, when you start raising your hand to touch the door handle, it start to rotate by itself. Someone or something tries to open the door.\n\n
       
       You hear crow sounds: 'Kaaarh, kaarh'. The door opens and you see a half-naked man with a crow head and a wooden bloody mace instead of his left hand. What do you want to do?\n\n
       
-      Fight\n
-      Run"
-    
-    - condition:
-      - type: slot
-        name: side_door_choice
-        value: Down
-      - type: slot
-        name: crow_key
-        value: false
-      text: ""
+      fight\n
+      run"
 
     - condition:
-      - type: slot
-        name: side_door_choice
-        value: Down
-      - type: slot
-        name: crow_key
-        value: true
-      text: ""
-
-    - condition:
-      - type: slot
-        name: side_door_choice
-        value: Down
-      - type: slot
-        name: ability
-        value: Lockpicking
-      text: ""
-
-# TODO: rewrite to custom action
-  utter_craw_mauler_choice:
-    - condition:
-      - type: slot
-        name: character_name
-        value: Mercenary
       - type: slot
         name: first_entrance
         value: Main
       - type: slot
         name: main_entrance_choice
-        value: Door
-      - type: slot
-        name: craw_mauler_choice
-        value: Fight
-      text: "You're trembling from fear, but somehow you pull yourself together. You are striking craw mauler with your mercenary's curved sword, 
-      but it craw mauler does not react to it even slightly. It raises it's peak above you and chops off your head instantly...\n\n
-      
-      You died."
+        value: Table
+      text: "Someone left the note on the table: \n\n
+      '
+      Crow, crow, grow your horn.\n
+      Vile as snow in the Skårsberg massacre row.\n
+\n\n
+      Crow, crow, oh why you maul?\n
+      The meat is fresh and the blood still falls.\n
+\n\n
+      Crow, crow, are you there?\n
+      He is coming - With nothing to bare.\n
+\n\n
+      Crow, crow, behind you now.\n
+      Oh crow please reap - oh crow what I sow.\n\n
+      '
 
-    - condition:
-      - type: slot
-        name: character_name
-        value: Mercenary
-      - type: slot
-        name: character_origin
-        value: Honest life
-      - type: slot
-        name: first_entrance
-        value: Main
-      - type: slot
-        name: main_entrance_choice
-        value: Door
-      - type: slot
-        name: craw_mauler_choice
-        value: Run
-      text: "Of course, what you, mere human, can do against ancient terror? The best thing is to run as fast as you can. However, when you turn you back to craw mauler,
-      it chops your legs off and beats you to death. Finally, it raises it's peak above you and chops off your head...\n\n
-      
-      You died."
-
-    - condition:
-      - type: slot
-        name: ability
-        value: Steal
-      - type: slot
-        name: first_entrance
-        value: Main
-      - type: slot
-        name: main_entrance_choice
-        value: Door
-      - type: slot
-        name: craw_mauler_choice
-        value: Run
-      text: "Of course, what you - mere human can do against ancient terror? The best thing is to run as fast as you can. The harsh world of thieves taught you
-      agility. \n\n
-      
-      You outrun craw mauler and even manage to steal something from his left pocket... It is a key with an emblem of crow!\n\n
-      
-      You can return to the side entrance."
-
-  utter_side_door_choice:
-    - condition:
-      - type: slot
-        name: side_door_choice
-        value: Mushrooms
-      text: "You're gatheting some mushrooms from the dry wall. They are squishy and some of them have a distinctive smell.
-      Despite that, you still try to taste one. As you chew it, you seems to start feeling uncomfortable tension in the belly. You start to puke with blood, but you cannot stop
-      until you fall on the ground unconsciously. It was a mistake to eat these mushrooms... \n\n
-      
-      You died."
-    
-    - condition:
-      - type: slot
-        name: side_door_choice
-        value: Down
-      - type: slot
-        name: crow_key
-        value: false
-      text: "You see a wooden door, and strange noises coming from it. You cannot distinguish whether it is scream or just your imagination...\n
-      The door is locked, you need a key with a symbol of crow to go through it."
-
-    - condition:
-      - type: slot
-        name: side_door_choice
-        value: Down
-      - type: slot
-        name: crow_key
-        value: true
-      text: "You see a wooden door, and strange noises coming from it. You cannot distinguish whether it is scream or just your imagination...\n
-      The door is locked, but you're inserting the key with a symbol of a crow. You hear and unlocking sound. Door is opened.\n\n
-      
-      You feel the breeze coming froming the door and a bright light. It feels like a home, with each step you want to go to sleep.\n\n
-      
-      When you reach the light, you lay down near it and fall asleep. This nightmare is over, finally...\n\n
-      
-      Ending B: the end?"
-
-    - condition:
-      - type: slot
-        name: side_door_choice
-        value: Down
-      - type: slot
-        name: ability
-        value: Lockpicking
-      text: "You see a wooden door, and strange noises coming from it. You cannot distinguish whether it is scream or just your imagination...\n
-      The door is locked, but you use your lockpicking skill to open it. Success! You open the door...\n\n
-      
-      You feel the breeze coming froming the door and a bright light. It feels like a home, with each step you want to go to sleep.\n\n
-      
-      When you reach the light, you lay down near it and fall asleep. This nightmare is over, finally...\n\n
-      
-      Ending B: the end?"
+      ...Creepy note sends shivers down your spine. You can now go to the door.
+      "
 
 actions:
+  - action_restart
   - action_character_chosen
   - action_character_origin
+  - action_crow_mauler_choice
+  - action_side_door_choice
 
 session_config:
   session_expiration_time: 60

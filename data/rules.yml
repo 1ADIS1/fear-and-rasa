@@ -22,8 +22,17 @@ rules:
   - intent: choose_first_entrance
   - action: utter_choose_first_entrance
 
+- rule: Choose main entrance options
+  steps:
+  - intent: main_entrance_choice
+  - action: utter_main_entrance_choice
+
 - rule: Choose side door options
   steps:
   - intent: side_door_choice
-  - action: utter_side_door_choice
+  - action: action_side_door_choice
   
+- rule: Crow mauler interaction
+  steps:
+  - intent: crow_mauler_choice
+  - action: action_crow_mauler_choice

@@ -20,13 +20,18 @@ stories:
 
   - intent: choose_first_entrance
     entities:
-    - first_entrance: Side
+    - first_entrance: Main
   - action: utter_choose_first_entrance
 
-  - intent: side_door_choice
+  - intent: main_entrance_choice
     entities: 
-    - side_door_choice: Down
-  - action: utter_side_door_choice
+    - main_entrance_choice: Door
+  - action: utter_main_entrance_choice
+
+  - intent: crow_mauler_choice
+    entities: 
+    - crow_mauler_choice: Fight
+  - action: action_crow_mauler_choice
 
 - story: Sad path 1
   steps:
@@ -36,7 +41,7 @@ stories:
 
   - intent: choose_character
     entities:
-    - character: Mercenary # TODO: change to dark priest
+    - character: Mercenary # TODO: change character
   - action: action_character_chosen
 
   - intent: character_origin
@@ -46,11 +51,42 @@ stories:
 
   - intent: choose_first_entrance
     entities:
+    - first_entrance: Main
+  - action: utter_choose_first_entrance
+
+  - intent: main_entrance_choice
+    entities: 
+    - main_entrance_choice: Door
+  - action: utter_main_entrance_choice
+
+  - intent: crow_mauler_choice
+    entities: 
+    - crow_mauler_choice: Run
+  - action: action_crow_mauler_choice
+
+- story: Sad path 2
+  steps:
+
+  - intent: start
+  - action: utter_start
+
+  - intent: choose_character
+    entities:
+    - character: Dark Priest
+  - action: action_character_chosen
+
+  - intent: character_origin
+    entities:
+    - character_origin: necromancy
+  - action: action_character_origin
+
+  - intent: choose_first_entrance
+    entities:
     - first_entrance: Side
   - action: utter_choose_first_entrance
 
   - intent: side_door_choice
     entities: 
-    - side_door_choice: Mushrooms
-  - action: utter_side_door_choice
+    - main_entrance_choice: mushrooms
+  - action: action_side_door_choice
 
