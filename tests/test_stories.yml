@@ -33,7 +33,7 @@ stories:
   - action: action_side_door_choice
     
 
-- story: Mercenary crow mauler run
+- story: Mercenary crow mauler fight
   steps:
 
   - user: |

@@ -292,7 +292,7 @@ You can return to the side entrance (type 'side').\n\n
                 dispatcher.utter_message(
                     text="""
                     You're trembling from fear, but somehow you pull yourself together. You are striking crow mauler with your weapon, 
-                    but crow mauler does not react to it even slightly. It raises it's peak above you and chops off your head instantly...\n\n
+                    but crow mauler does not react to it even slightly. It raises its peak above you and chops off your head instantly...\n\n
                     """)
 
                 events = [FollowupAction("action_restart")]
@@ -312,7 +312,7 @@ You can return to the side entrance (type 'side').\n\n
                 dispatcher.utter_message(
                     text="""
                     Of course, what you, mere human, can do against ancient terror? The best thing is to run as fast as you can. However, when you turn your back to the crow mauler,
-                    it chops your legs off and beats you to death. Finally, it raises it's peak above you and chops off your head...\n\n
+                    it chops your legs off and beats you to death. Finally, it raises its peak above you and chops off your head...\n\n
                     """)
                 events = [FollowupAction("action_restart")]
 
