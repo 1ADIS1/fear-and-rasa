@@ -1,26 +1,115 @@
 #### This file contains tests to evaluate that your bot behaves as expected.
 #### If you want to learn more, please see the docs: https://rasa.com/docs/rasa/testing-your-assistant
 
-# TODO: write 3 tests: mushroom dark priest, pickpocket mercenary crow mauler death, outlander devour crow mauler
+version: "3.1"
+
 stories:
-- story: start game 1
+- story: Dark priest eats mushrooms
   steps:
+
   - user: |
       start
     intent: start
   - action: utter_start
-  - user: |
-      Mercenary
-    intent: choose_character
-  - action: utter_choose_character
 
-- story: start game 2
+  - user: |
+      [Dark Priest]{"entity": "character", "value": "dark priest"}
+    intent: choose_character
+  - action: action_character_chosen
+
+  - user: |
+      [Defeat]{"entity": "character_origin", "value": "defeat"}
+    intent: character_origin
+  - action: action_character_origin
+
+  - user: |
+      [Side]{"entity": "first_entrance", "value": "side"}
+    intent: choose_first_entrance
+  - action: utter_choose_first_entrance
+
+  - user: |
+      Eat [mushrooms](side_door_choice)
+    intent: side_door_choice
+  - action: action_side_door_choice
+    
+
+- story: Mercenary crow mauler run
   steps:
+
   - user: |
       play
     intent: start
   - action: utter_start
+
   - user: |
-      Dark priest
+      [Mercenary]{"entity": "character", "value": "mercenary"}
     intent: choose_character
-  - action: utter_choose_character
+  - action: action_character_chosen
+
+  - user: |
+      [Pickpocket]{"entity": "character_origin", "value": "pickpocket"}
+    intent: character_origin
+  - action: action_character_origin
+
+  - user: |
+      [Main]{"entity": "first_entrance", "value": "main"}
+    intent: choose_first_entrance
+  - action: utter_choose_first_entrance
+
+  - user: |
+      [Door]{"entity": "main_entrance_choice", "value": "door"}
+    intent: main_entrance_choice
+  - action: utter_main_entrance_choice
+
+  - user: |
+      [Run]{"entity": "crow_mauler_choice", "value": "run"}
+    intent: crow_mauler_choice
+  - action: action_crow_mauler_choice
+
+- story: Outlander devours crow mauler and escapes
+  steps:
+
+  - user: |
+      p
+    intent: start
+  - action: utter_start
+
+  - user: |
+      [Outlander]{"entity": "character", "value": "outlander"}
+    intent: choose_character
+  - action: action_character_chosen
+
+  - user: |
+      [Devour]{"entity": "character_origin", "value": "devour"}
+    intent: character_origin
+  - action: action_character_origin
+
+  - user: |
+      [Main]{"entity": "first_entrance", "value": "main"}
+    intent: choose_first_entrance
+  - action: utter_choose_first_entrance
+
+  - user: |
+      [Table]{"entity": "main_entrance_choice", "value": "table"}
+    intent: main_entrance_choice
+  - action: utter_main_entrance_choice
+
+  - user: |
+      [Door]{"entity": "main_entrance_choice", "value": "door"}
+    intent: main_entrance_choice
+  - action: utter_main_entrance_choice
+
+  - user: |
+      [Fight]{"entity": "crow_mauler_choice", "value": "fight"}
+    intent: crow_mauler_choice
+  - action: action_crow_mauler_choice
+
+  - user: |
+      [Side]{"entity": "first_entrance", "value": "side"}
+    intent: choose_first_entrance
+  - action: utter_choose_first_entrance
+
+  - user: |
+      Go [down](side_door_choice)
+    intent: side_door_choice
+  - action: action_side_door_choice

@@ -336,7 +336,7 @@ class ActionSideDoorChoice(Action):
         if side_door_choice == "mushrooms":
             dispatcher.utter_message(
                 text="""
-You're gatheting some mushrooms from the dry wall. They are squishy and some of them have a distinctive smell.
+You're gathering some mushrooms from the dry wall. They are squishy and some of them have a distinctive smell.
 Despite that, you still try to taste one. As you chew it, you seem to start feeling uncomfortable tension in the belly. You puke with blood, but you cannot stop
 until you fall on the ground unconsciously. It was a mistake to eat these mushrooms... \n\n
                     """)

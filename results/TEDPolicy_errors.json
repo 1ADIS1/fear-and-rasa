@@ -1,0 +1,206 @@
+[
+  {
+    "text": "Dark Priest",
+    "entities": [
+      {
+        "start": 0,
+        "end": 11,
+        "value": "dark priest",
+        "entity": "character"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "Defeat",
+    "entities": [
+      {
+        "start": 0,
+        "end": 6,
+        "value": "defeat",
+        "entity": "character_origin"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "Side",
+    "entities": [
+      {
+        "start": 0,
+        "end": 4,
+        "value": "side",
+        "entity": "first_entrance"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "Eat mushrooms",
+    "entities": [
+      {
+        "start": 4,
+        "end": 13,
+        "value": "mushrooms",
+        "entity": "side_door_choice"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "Mercenary",
+    "entities": [
+      {
+        "start": 0,
+        "end": 9,
+        "value": "mercenary",
+        "entity": "character"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "Pickpocket",
+    "entities": [
+      {
+        "start": 0,
+        "end": 10,
+        "value": "pickpocket",
+        "entity": "character_origin"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "Main",
+    "entities": [
+      {
+        "start": 0,
+        "end": 4,
+        "value": "main",
+        "entity": "first_entrance"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "Door",
+    "entities": [
+      {
+        "start": 0,
+        "end": 4,
+        "value": "door",
+        "entity": "main_entrance_choice"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "Run",
+    "entities": [
+      {
+        "start": 0,
+        "end": 3,
+        "value": "run",
+        "entity": "crow_mauler_choice"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "Outlander",
+    "entities": [
+      {
+        "start": 0,
+        "end": 9,
+        "value": "outlander",
+        "entity": "character"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "Devour",
+    "entities": [
+      {
+        "start": 0,
+        "end": 6,
+        "value": "devour",
+        "entity": "character_origin"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "Main",
+    "entities": [
+      {
+        "start": 0,
+        "end": 4,
+        "value": "main",
+        "entity": "first_entrance"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "Table",
+    "entities": [
+      {
+        "start": 0,
+        "end": 5,
+        "value": "table",
+        "entity": "main_entrance_choice"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "Door",
+    "entities": [
+      {
+        "start": 0,
+        "end": 4,
+        "value": "door",
+        "entity": "main_entrance_choice"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "Fight",
+    "entities": [
+      {
+        "start": 0,
+        "end": 5,
+        "value": "fight",
+        "entity": "crow_mauler_choice"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "Side",
+    "entities": [
+      {
+        "start": 0,
+        "end": 4,
+        "value": "side",
+        "entity": "first_entrance"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "Go down",
+    "entities": [
+      {
+        "start": 3,
+        "end": 7,
+        "value": "down",
+        "entity": "side_door_choice"
+      }
+    ],
+    "predicted_entities": []
+  }
+]
