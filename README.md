@@ -9,7 +9,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/username/repository/fear-and-rasa/master/FearAndRasa.png">
+  <a href="https://github.com/1ADIS1/repository/fear-and-rasa/master/FearAndRasa.png">
     <img src="images/logo.png" alt="Logo" width="80" height="80">
   </a>
 
