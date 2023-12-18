@@ -86,12 +86,12 @@ You were born with the soul of the tormented.
 You are destined to struggle in every step you take in life. 
 Ultimately this makes you stronger physically and tempers your iron will that rivals the will of the gods themselves.\n
 
-Winters grew colder and summers shorter, which resulted a great hunger in the north. 
+Winters grew colder and summers shorter, which resulted in a great hunger in the north. 
 The fine men of the Oldegård set sails to the unknown west in a desperate attempt to find food and riches to feed the people.\n
 
 You had grown into your manhood and boarded the ship. 
 After months of sailing, the sea saw no end and the crew was struggling. 
-Some laid weak under the deck while some some embraced the cold dark sea.\n
+Some laid weak under the deck while some embraced the cold dark sea.\n
 
 As the weak met their fate, the rest indulged in the greatest sin... (Choose 1 option)\n
 
@@ -259,13 +259,13 @@ You can return to the side entrance (type 'side').\n\n
             elif ability == "devour":
                 dispatcher.utter_message(
                     text="""
-As crow mauler approaches, you feel terrible sense of hunger, which cannot be hold on any longer.
-You leap towards crow mauler and start devouring it alive... It was horrible, your mind was blank in the process.
+As the crow mauler approaches, you feel a terrible sense of hunger, which cannot be held on any longer.
+You leap towards the crow mauler and start devouring it alive... It was horrible, your mind was blank in the process.
 You didn't even understand whether you were alive or not.\n
 
 Right now you're standing in the bloodbath, and under your legs you see a shiny object.\n
 
-You find a key with an emblem of crow!\n
+You find a key with an emblem of a crow!\n
 
 You can return to the side entrance (type 'side').\n\n
                     """)
@@ -345,8 +345,8 @@ until you fall on the ground unconsciously. It was a mistake to eat these mushro
             if crow_key:
                 dispatcher.utter_message(
                     text="""
-You see a wooden door, and hear strange noises coming from it. You cannot distinguish whether it is scream or just your imagination...
-The door is locked, but you're inserting the key with a symbol of a crow. You hear unlocking sound. The door is opened.\n
+You see a wooden door, and hear strange noises coming from it. You cannot distinguish whether it is a scream or just your imagination...
+The door is locked, but you're inserting the key with a symbol of a crow. You hear the unlocking sound. The door is opened.\n
 
 You feel the breeze coming from the door, and see a bright light. It feels like a home, with each step you want to go to sleep.\n
 
